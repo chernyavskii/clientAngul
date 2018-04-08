@@ -1,0 +1,21 @@
+.login-component-container {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  width: 400px;
+}
+.mat-toolbar {
+  background: #3f51b5;
+}
+.mat-form-field {
+  width: 93.7%;
+  margin: auto;
+  padding: 10px;
+}
+.main-content {
+  border: 1px solid black;
+  margin: auto;
+  width: 90%;
+  padding: 10px;
+  background: #FFFFFF;
+}

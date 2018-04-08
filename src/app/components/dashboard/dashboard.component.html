@@ -1,0 +1,97 @@
+<ng-container>
+  <mat-toolbar class="dashboard-header">
+    <span class="example-fill-remaining-space"></span>
+    <div class="navigation-panel">
+      <ul class="list-items-navigation">
+        <li class="list-item-nav">
+          <button mat-icon-button>
+            <mat-icon>power</mat-icon>
+          </button>
+        </li>
+        <li class="list-item-nav">
+          <button mat-icon-button>
+            <mat-icon>person</mat-icon>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="dashboard-container">
+    <mat-sidenav #sidenav mode="side" opened="true" class="dashboard-sidenav" [fixedInViewport]="true">
+      <mat-accordion>
+        <!--style="background: url(https://wallpaperscraft.ru/image/imac_ipad_apple_106481_1920x1080.jpg) no-repeat;" >-->
+        <div class="dashboard-title">
+          <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <span><b>Панель Управления</b></span>
+        </div>
+        <ul class="left-menu">
+          <li class="left-menu-item">
+            <!--
+                        <a href="#home">Home</a></li>
+            -->
+            <a [routerLink]="['./profile']" routerLinkActive="active"><mat-icon>home</mat-icon>Мой профиль</a>
+            <a [routerLink]="['./documents']" routerLinkActive="active"><mat-icon>home</mat-icon>Мой документы</a>
+            <a [routerLink]="['./agents']" routerLinkActive="active"><mat-icon>home</mat-icon>Мои контрагенты</a>
+            <a [routerLink]="['./test']" routerLinkActive="active"><mat-icon>home</mat-icon>Создать документ</a>
+
+        </ul>
+        <!--   <mat-expansion-panel>
+             <mat-expansion-panel-header>
+               <mat-panel-title>
+   &lt;!&ndash;
+                               <mat-icon>account_circle</mat-icon>
+   &ndash;&gt;
+                 <p>Категория 1</p>
+               </mat-panel-title>
+             </mat-expansion-panel-header>
+             <mat-list>
+               <mat-list-item>
+                 <a  [routerLink]="['./profile/u']">Подкатегория 1</a>
+               </mat-list-item>
+               <mat-list-item>
+                 <a [routerLink]="['./test']">Подкатегория 2</a>
+               </mat-list-item>
+               <mat-list-item>
+                 <a [routerLink]="['./profile/u']">Подкатегория 3</a>
+               </mat-list-item>
+             </mat-list>
+
+           </mat-expansion-panel>-->
+        <!--  <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+             &lt;!&ndash;                 <mat-icon>account_circle</mat-icon>&ndash;&gt;
+                <p>Категория 2</p>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>-->
+      </mat-accordion>
+    </mat-sidenav>
+
+    <div class="dashboard-main-content">
+      <!--
+            <app-profile [user]="currentUser"></app-profile>
+      -->
+<!--
+                  <app-documents [user]="currentUser"></app-documents>
+-->
+      <!-- add Form находится в <app-document> вставил просто для теста ! -->
+            <!--<app-add-form [user]="currentUser"></app-add-form>-->
+
+                  <app-agents [user]="currentUser"></app-agents>
+
+<!--      <router-outlet>
+      </router-outlet>-->
+    </div>
+
+
+  </mat-sidenav-container>
+
+  <mat-toolbar class="dashboard-footer">
+
+  </mat-toolbar>
+</ng-container>
+

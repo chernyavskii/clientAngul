@@ -1,0 +1,22 @@
+<div class="login-component-container">
+  <mat-card-content>
+    <mat-card>
+      <mat-toolbar>
+        <h2 style="color: #FFFFFF">Вход</h2>
+      </mat-toolbar>
+    <form (submit)="login()">
+      <div class="form-group">
+        <mat-form-field>
+          <input type="text" matInput placeholder="Логин" name="username" [(ngModel)]="model.username" #username="ngModel"  />
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Пароль" name="password" [(ngModel)]="model.password" #username="ngModel" [type]="hide ? 'password' : 'text'" required />
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary"  aria-label="Show an example snack-bar">Войти</button>
+    </form>
+    </mat-card>
+  </mat-card-content>
+</div>

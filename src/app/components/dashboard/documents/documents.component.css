@@ -1,0 +1,153 @@
+.grid {
+}
+
+.grid__row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.grid__item {
+  flex: 1;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+/*@media all and ( min-width: 480px ) {
+
+  .grid__row--sm {
+    flex-direction: row;
+  }
+
+}
+
+@media all and ( min-width: 769px ) and (min-width: 1025px) {
+
+  .grid__row--md {
+    flex-direction: row;
+  }
+}*/
+
+/*@media all and ( min-width: 960px ) {
+
+  .grid__row--lg {
+    flex-direction: row;
+  }
+
+}*/
+
+
+/*.centered {
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+@media screen and (min-width: 52em) {
+  .centered {
+    max-width: 52em;
+  }
+}*/
+
+
+
+/*
+@media ( max-width: 350px ) {
+
+  .mat-card__--sm {
+    width: 270px;
+  }
+
+}
+
+@media ( min-width: 760px ) {
+
+  .mat-card__--md {
+    width: 200px;
+  }
+}
+@media ( min-width: 700px ) {
+
+  .mat-card__--md1 {
+    width: 200px;
+  }
+}
+*/
+
+.card {
+  background: white;
+  margin-bottom: 2em;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.card a {
+  color: black;
+  text-decoration: none;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.card a:hover {
+  box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.card {
+  flex: 1 0 300px;
+  box-sizing: border-box;
+  margin: 1rem .25em;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+@media screen and (min-width: 40em) {
+  .card {
+    max-width: calc(50% -  1em);
+    font-family: 'Open Sans Condensed', sans-serif;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  .card {
+    max-width: calc(25% - 1em);
+    font-family: 'Open Sans Condensed', sans-serif;
+  }
+}
+
+.zoom {
+  display:inline-block;
+  border:0;
+  width: 100%;
+  height: auto;
+  position: relative;
+  transition: all 200ms ease-in;
+  transform: scale(1);
+}
+
+.zoom:hover {
+  box-shadow: 0px 0px 50px #000000;
+  z-index: 2;
+  transition: all 300ms ease-in;
+  transform: scale(1.2);
+}
+
+.image_span{
+  display:inline-block;
+  border:0;
+  width: 100%;
+  height: 400px;
+  position: relative;
+  font-size: 300px;
+  color: #f5f5f5;
+}
+.content--span p {
+  line-height: 1em;
+}
+.button--next {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1em;
+}

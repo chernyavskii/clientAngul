@@ -1,0 +1,51 @@
+.registration-component-container {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  width: 900px;
+}
+.registration-main-form-content {
+  background-color: white;
+}
+.mat-toolbar {
+  background: #3f51b5;
+}
+.form-group1 {
+  width: 300px;
+  margin: auto;
+  padding-top: 15px;
+}
+.form-field-group1 {
+  width: 300px;
+}
+.form-group2 {
+  width: 740px;
+  margin: auto;
+  padding-top: 15px;
+}
+.form-field-group2 {
+  width: 225px;
+  margin-left: 13px;
+}
+.form-group3 {
+  margin: auto;
+  padding-top: 15px;
+  width: 740px;
+}
+.form-field-group3 {
+  width: 225px;
+  margin-left: 13px;
+}
+.form-group4 {
+  width: 525px;
+  margin: auto;
+  padding-top: 15px;
+}
+.form-field-group4 {
+  width: 225px;
+  margin-left: 23px;
+}
+.action-buttons-line {
+  width: 750px;
+  margin: auto;
+}

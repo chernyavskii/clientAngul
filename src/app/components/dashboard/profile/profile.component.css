@@ -1,0 +1,49 @@
+.grid {
+}
+.grid__row {
+  display: flex;
+  flex-direction: column;
+}
+.grid__row_button {
+  display: flex;
+  float: none;
+  flex-direction: column;
+}
+.grid__item {
+  flex: 1;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.grid__item__main {
+  flex: 1;
+  padding: 10px;
+}
+@media all and ( min-width: 480px ) {
+
+  .grid__row--sm {
+    flex-direction: row;
+  }
+
+}
+@media all and ( min-width: 480px ) {
+
+  .grid__row--sm_button {
+    flex-direction: row;
+    float: right;
+  }
+
+}
+@media all and ( min-width: 769px ) and (min-width: 992px) {
+
+  .grid__row--md {
+    flex-direction: row;
+  }
+
+}
+@media all and ( min-width: 960px ) {
+
+  .grid__row--lg {
+    flex-direction: row;
+  }
+
+}

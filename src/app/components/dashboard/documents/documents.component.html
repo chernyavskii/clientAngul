@@ -1,0 +1,261 @@
+<!--
+<div class="grid">
+  <div class="grid__row grid__row&#45;&#45;md">
+    <div class="grid__item">
+      <app-add-form [user]="user"></app-add-form>
+    </div>
+  </div>
+</div>
+-->
+<!--<div class="grid__row grid__row&#45;&#45;md">
+  <mat-card class="grid__item" *ngFor="let document of allDocuments; let i=index;" style=" margin: 10px;">
+    <mat-card-header style="background: linear-gradient(to right, #834d9b, #d04ed6);">
+      <mat-card-title style="color: #FFFFFF">{{document.date}}</mat-card-title>
+      <mat-card-subtitle style="color: #FFFFFF">тесттесттесттесттест</mat-card-subtitle>
+    </mat-card-header>
+    <div class="progress-bar" >
+      <mat-spinner *ngIf="onLoad"></mat-spinner>
+      <img src="{{url[i]}}" width="250" height="300" *ngIf="!onLoad" >
+    </div>
+    <mat-card-content>
+      {{document.name}}
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>-->
+<!--
+<div class="k">
+  <div class="cards">
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>title</mat-card-title>
+        <mat-card-subtitle>subtitle</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        content
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>title</mat-card-title>
+        <mat-card-subtitle>subtitle</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        content
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>title</mat-card-title>
+        <mat-card-subtitle>subtitle</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        content
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>title</mat-card-title>
+        <mat-card-subtitle>subtitle</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        content
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>title</mat-card-title>
+        <mat-card-subtitle>subtitle</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        content
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>title</mat-card-title>
+        <mat-card-subtitle>subtitle</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        content
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+-->
+<app-document-detail [document]="selectedDocument"></app-document-detail>
+
+<div class="cards">
+  <mat-card class="card" *ngFor="let document of allDocuments; let i=index;" style=" margin: 10px;">
+    <!--
+        {{url.length | json}}
+    -->
+
+    <mat-card-header>
+      <mat-card-title style="font-size: 1.2em;">Название: {{document.name}}</mat-card-title>
+      <mat-card-subtitle>Дата создания: {{document.date}}</mat-card-subtitle>
+    </mat-card-header>
+   <!-- <div style="height: 400px; width: 300px">
+
+      <pdf-viewer [src]="url[i]" [original-size]="false" [zoom]="0.5" [page]="1"></pdf-viewer>
+    </div>-->
+    <div style="height: 400px;" *ngIf="waitProp">
+      <mat-progress-bar mode="buffer"></mat-progress-bar>
+      <!-- <mat-icon class="image_span">content_paste
+       </mat-icon>-->
+    </div>
+      <div style="height: 400px" *ngIf="!waitProp">
+        <img *ngIf="!onLoad" class="zoom" style="height: 400px;" src="{{url[i]}}" width="250" height="400">
+      </div>
+    <mat-card-actions>
+      <button mat-button class="button--next" (click)="documentInfo(document)">Подробнее</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+
+
+<!--<div class="grid__item">
+  <app-add-form [user]="user"></app-add-form>
+</div>-->
+
+<!--<div class="centered">
+  <section class="cards">
+    <article class="card">
+      <a href="#">
+
+        <div class="card-content">
+
+          <h2>Vacation Image 01</h2>
+          <p>TUX re-inventing the wheel, and move the needle. Feature creep dogpile that but diversify kpis but market-facing.</p>
+        </div>&lt;!&ndash; .card-content &ndash;&gt;
+      </a>
+    </article>&lt;!&ndash; .card &ndash;&gt;
+
+    <article class="card">
+      <a href="#">
+
+        <div class="card-content">
+          <h2>Vacation Image 02</h2>
+          <p>Staff engagement synergize productive mindfulness and waste of resources cross sabers, or forcing function shotgun approach drink the Kool-aid.</p>
+          <p>Execute are we in agreeance what do you feel you would bring to the table if you were hired for this position, nor closer to the metal goalposts, are there any leftovers in the kitchen?.</p>
+        </div>&lt;!&ndash; .card-content &ndash;&gt;
+      </a>
+    </article>&lt;!&ndash; .card &ndash;&gt;
+
+    <article class="card">
+      <a href="#">
+
+        <div class="card-content">
+          <h2>Vacation Image 03</h2>
+          <p>Viral engagement anti-pattern back of the net, for meeting assassin horsehead offer. Loop back design thinking drop-dead date. </p>
+        </div>&lt;!&ndash; .card-content &ndash;&gt;
+      </a>
+    </article>&lt;!&ndash; .card &ndash;&gt;
+
+    <article class="card">
+      <a href="#">
+
+        <div class="card-content">
+          <h2>Vacation Image 04</h2>
+          <p>We need a paradigm shift get all your ducks in a row. I just wanted to give you a heads-up we need distributors to evangelize the new line to local markets when does this sunset? so waste of resources, yet fire up your browser, or touch base closing these latest prospects is like putting socks on an octopus.</p>
+        </div>&lt;!&ndash; .card-content &ndash;&gt;
+      </a>
+    </article>&lt;!&ndash; .card &ndash;&gt;
+
+    <article class="card">
+      <a href="#">
+
+        <div class="card-content">
+          <h2>Vacation Image 05</h2>
+          <p>Action item get buy-in, so work flows low-hanging fruit innovation is hot right now. Game plan UX, nor open door policy, this is a no-brainer, new economy obviously.</p>
+          <p>Who's responsible for the ask for this request? </p>
+        </div>&lt;!&ndash; .card-content &ndash;&gt;
+      </a>
+    </article>&lt;!&ndash; .card &ndash;&gt;
+
+    <article class="card">
+      <a href="#">
+
+        <div class="card-content">
+          <h2>Vacation Image 06</h2>
+          <p>Personal development win-win-win close the loop yet are there any leftovers in the kitchen? for wheelhouse game-plan. We need a recap by eod, cob or whatever comes first work flows pig in a python. </p>
+        </div>&lt;!&ndash; .card-content &ndash;&gt;
+      </a>
+    </article>&lt;!&ndash; .card &ndash;&gt;
+
+    <article class="card">
+      <a href="#">
+
+        <div class="card-content">
+          <h2>Vacation Image 07</h2>
+          <p>Face time nail jelly to the hothouse wall, for herding cats, and shelfware. Action item mobile friendly. Bleeding edge bake it in we are running out of runway this is meaningless your work on this project has been really impactful. Feature creep waste of resources.</p>
+          <p>Value-added take five, punch the tree, and come back in here with a clear head, one-sheet, nor pixel pushing, yet organic growth reach out. </p>
+        </div>&lt;!&ndash; .card-content &ndash;&gt;
+      </a>
+    </article>&lt;!&ndash; .card &ndash;&gt;
+
+    <article class="card">
+      <a href="#">
+
+        <div class="card-content">
+          <h2>Vacation Image 08</h2>
+          <p>On a recent trip to Europe my brothers and I invented a new game called "Pool Cue Jenga". It is the best game ever invented.</p>
+          <p>The rules are simple: You must use a pool cue to remove tiles. Only one cue can be used, and you can not use your fingers.</p>
+        </div>&lt;!&ndash; .card-content &ndash;&gt;
+      </a>
+    </article>&lt;!&ndash; .card &ndash;&gt;
+
+    <article class="card">
+      <a href="#">
+
+        <div class="card-content">
+          <h2>Vacation Image 09</h2>
+          <p>Moving the goalposts. Work productize after I ran into Helen at a restaurant, I realized she was just office pretty, or organic growth blue money, for we need to future-proof this. </p>
+          <p>Globalize golden goose pulling teeth, nor player-coach.</p>
+        </div>&lt;!&ndash; .card-content &ndash;&gt;
+      </a>
+    </article>&lt;!&ndash; .card &ndash;&gt;
+
+    <article class="card">
+      <a href="#">
+
+        <div class="card-content">
+          <h2>Vacation Image 10</h2>
+          <p>Moving the goalposts. Work productize after I ran into Helen at a restaurant, I realized she was just office pretty, or organic growth blue money, for we need to future-proof this. </p>
+          <p>Globalize golden goose pulling teeth, nor player-coach.</p>
+        </div>&lt;!&ndash; .card-content &ndash;&gt;
+      </a>
+    </article>&lt;!&ndash; .card &ndash;&gt;
+
+  </section>&lt;!&ndash; .cards &ndash;&gt;
+
+</div>&lt;!&ndash; .centered &ndash;&gt;
+-->

@@ -1,0 +1,98 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Мой профиль</mat-card-title>
+    <mat-card-subtitle>Редактирование</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content style="margin-top: 30px;">
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title
+            style="font-family: 'Open Sans Condensed', sans-serif; font-size: 23px; color: #9E9E9E; padding-bottom: 5px; border-bottom: 1px solid #f7f7f8;">
+            Личные данные
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <form (submit)="updateProfile(user)" [formGroup]="firstFormGroup">
+          <!-- <span style="font-family: 'Open Sans Condensed', sans-serif; height: 25px; font-size: 25px; color: #9E9E9E;">
+               <p style="padding-bottom: 10px; border-bottom: 1px solid #f7f7f8;">Личные данные</p></span>-->
+          <div class="grid__row grid__row--md">
+            <mat-form-field class="grid__item">
+              <input type="text" matInput [(ngModel)]="user.firstName" formControlName="firstName" placeholder="Имя"
+                     name="firstName"/>
+            </mat-form-field>
+            <mat-form-field class="grid__item">
+              <input type="text" matInput [(ngModel)]="user.middleName" formControlName="middleName"
+                     placeholder="Отчество"
+                     name="middleName"/>
+            </mat-form-field>
+            <mat-form-field class="grid__item">
+              <input type="text" matInput [(ngModel)]="user.lastName" formControlName="lastName" placeholder="Фамилия"
+                     name="lastName"/>
+            </mat-form-field>
+          </div>
+
+          <div class="grid__row grid__row--md">
+            <mat-form-field class="grid__item">
+              <input type="text" matInput [(ngModel)]="user.address" formControlName="address" placeholder="Адрес"
+                     name="address"/>
+            </mat-form-field>
+            <mat-form-field class="grid__item">
+              <input type="text" matInput [(ngModel)]="user.phone" formControlName="phone" placeholder="Телефон"
+                     name="phone"/>
+            </mat-form-field>
+          </div>
+
+          <div class="grid__row grid__row--md">
+            <mat-form-field class="grid__item">
+              <input type="text" matInput [(ngModel)]="user.unp" formControlName="unp" placeholder="УНП"
+                     name="middleName"
+              />
+            </mat-form-field>
+            <mat-form-field class="grid__item">
+              <input type="text" matInput [(ngModel)]="user.organization" formControlName="organization"
+                     placeholder="Организация" name="organization"
+              />
+            </mat-form-field>
+            <mat-form-field class="grid__item">
+              <input type="text" matInput [(ngModel)]="user.position" formControlName="position" placeholder="Должность"
+                     name="position"
+              />
+            </mat-form-field>
+          </div>
+
+          <div class="grid__row grid__row--md">
+            <mat-form-field class="grid__item">
+              <input type="text" matInput [(ngModel)]="user.bank" formControlName="bank" placeholder="Банк" name="bank"
+              />
+            </mat-form-field>
+          </div>
+
+          <div class="grid__row grid__row--md">
+            <mat-form-field class="grid__item">
+              <input type="text" matInput [(ngModel)]="user.rs" formControlName="rs" placeholder="РС" name="rs"
+              />
+            </mat-form-field>
+            <mat-form-field class="grid__item">
+              <input type="text" matInput [(ngModel)]="user.bik" formControlName="bik" placeholder="БИК" name="bik"
+              />
+            </mat-form-field>
+            <mat-form-field class="grid__item">
+              <input type="text" matInput [(ngModel)]="user.ks" formControlName="ks" placeholder="КС" name="ks"
+              />
+            </mat-form-field>
+          </div>
+          <button class="submit--button" mat-raised-button type="submit">Принять</button>
+        </form>
+      </mat-expansion-panel>
+      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title
+            style="font-family: 'Open Sans Condensed', sans-serif; font-size: 23px; color: #9E9E9E; padding-bottom: 5px; border-bottom: 1px solid #f7f7f8;">
+            Изменить пароль
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-change-password [user]="user"></app-change-password>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+</mat-card>

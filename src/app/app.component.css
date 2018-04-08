@@ -1,0 +1,18 @@
+.app-navigation {
+  width: 325px;
+  margin: auto;
+  border: 1px solid red;
+}
+.tab-group {
+  width: 450px;
+  margin: auto;
+  border: 1px solid yellow;
+}
+.app-footer {
+  position: fixed;
+  border: 1px solid green;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #F5F5F5;
+}

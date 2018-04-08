@@ -1,0 +1,358 @@
+/* DASHBOARD Html */
+<ng-container>
+  <mat-toolbar class="dashboard-header">
+    <span class="example-fill-remaining-space"></span>
+    <div class="navigation-panel">
+      <ul class="list-items-navigation">
+        <li class="list-item-nav"><a><mat-icon>power</mat-icon></a></li>
+        <li class="list-item-nav"><a><mat-icon>person</mat-icon></a></li>
+      </ul>
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="dashboard-container">
+    <mat-sidenav #sidenav mode="side" opened="true" class="dashboard-sidenav" [fixedInViewport]="true">
+      <mat-accordion>
+        <!--style="background: url(https://wallpaperscraft.ru/image/imac_ipad_apple_106481_1920x1080.jpg) no-repeat;" >-->
+        <div class="dashboard-title">
+          <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <span><b>Панель Управления</b></span>
+        </div>
+        <div class="nav-container">
+          <ul class="nav">
+            <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+              <a  [routerLink]="[menuItem.path]">
+                <i class="material-icons">{{menuItem.icon}}</i>
+                <p>{{menuItem.title}}</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <ul class="left-menu">
+          <li class="left-menu-item">
+             <!-- <a
+                 [routerLink]="['./profile']"
+                 routerLinkActive #link2="routerLinkActive"
+                 [active]="link2.isActive">
+                Изменить Профиль
+              </a>-->
+     <!--       <a [routerLink]="['./profile']"
+               routerLinkActive #link2="routerLinkActive"
+               [active]="link2.isActive">Loigin</a>-->
+            <a routerLink="/dashboard/profile" routerLinkActive="active">Login</a>
+        <!--  <li _ngcontent-c1="" routerlinkactive="active" class="active">
+            <a _ngcontent-c1="" href="/dashboard">
+              <i _ngcontent-c1="" class="material-icons">dashboard</i>
+              <p _ngcontent-c1="">Dashboard</p>
+            </a>
+          </li>-->
+          </li>
+          <li class="left-menu-item"><a href="#news">News</a></li>
+          <li class="left-menu-item"><a href="#contact">Contact</a></li>
+          <li class="left-menu-item"><a href="#about">About</a></li>
+        </ul>
+        <!--   <mat-expansion-panel>
+             <mat-expansion-panel-header>
+               <mat-panel-title>
+   &lt;!&ndash;
+                               <mat-icon>account_circle</mat-icon>
+   &ndash;&gt;
+                 <p>Категория 1</p>
+               </mat-panel-title>
+             </mat-expansion-panel-header>
+             <mat-list>
+               <mat-list-item>
+                 <a  [routerLink]="['./profile/u']">Подкатегория 1</a>
+               </mat-list-item>
+               <mat-list-item>
+                 <a [routerLink]="['./test']">Подкатегория 2</a>
+               </mat-list-item>
+               <mat-list-item>
+                 <a [routerLink]="['./profile/u']">Подкатегория 3</a>
+               </mat-list-item>
+             </mat-list>
+
+           </mat-expansion-panel>-->
+        <!--  <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+             &lt;!&ndash;                 <mat-icon>account_circle</mat-icon>&ndash;&gt;
+                <p>Категория 2</p>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>-->
+      </mat-accordion>
+    </mat-sidenav>
+
+
+    <div class="dashboard-main-content">
+<!--
+      <app-profile [user]="currentUser"></app-profile>
+-->
+      <app-documents [user]="currentUser"></app-documents>
+
+      <!--     <router-outlet>
+           </router-outlet>-->
+    </div>
+
+
+  </mat-sidenav-container>
+
+  <mat-toolbar class="dashboard-footer">
+
+  </mat-toolbar>
+</ng-container>
+
+/* CSS */
+.dashboard-container {
+  position: absolute;
+  top: 60px;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  margin-top: -8px;
+  background: #f7f7f8;
+}
+
+/*.mat-button-toggle {
+  background-color: #FAFAFA;
+  margin-left: -15px;
+  height: 53px;
+  border: none;
+}*/
+.dashboard-sidenav {
+  display: flex;
+  width: 270px;
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, .42), 0 4px 25px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
+}
+
+.dashboard-title {
+  height: 73px;
+  display: table;
+  width: 270px;
+  text-align: center;
+  border: 1px solid black;
+  /*
+  border-bottom: 1px solid #dfdfdf;
+  */
+}
+
+.dashboard-title span {
+  margin: 0 auto;
+  font-size: 25px;
+  display: table-cell;
+  vertical-align: middle;
+  color: #424242;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.example-fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.dashboard-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  background: #f7f7f8;
+  /*
+  border-bottom: 1px solid #dfdfdf;
+  */
+}
+
+.dashboard-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #FFFFFF;
+  border-top: 5px solid #dfdfdf;
+}
+
+.mat-expansion-panel {
+  width: 270px;
+  background-color: #EEEEEE;
+}
+
+.mat-expansion-panel-header {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.mat-panel-title {
+  border: 1px solid red;
+  margin-left: 0px;
+  height: 25px;
+}
+
+.mat-panel-title p {
+  border: 1px solid black;
+  margin-top: 2px;
+  height: 20px;
+  color: #424242;
+}
+
+.mat-list {
+  border: 1px solid orange;
+}
+
+.mat-list-item {
+  font-size: 13px;
+  border: 1px solid green;
+  margin-top: -7px;
+  height: 300px;
+}
+
+.mat-list-item p {
+  border: 1px solid red;
+}
+
+.dashboard-main-content {
+  margin: auto;
+  width: 95%;
+  padding-top: 30px;
+}
+
+.dashboard-header-right-button {
+  margin-left: 1600px;
+}
+
+.dashboard-main-content-header {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Параметры тени */
+}
+
+.line-toggle {
+  height: 10px;
+  line-height: 8px;
+}
+
+.list-items-navigation {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.list-item-nav {
+  float: right;
+}
+
+.list-item-nav a {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  color: #757575;
+}
+
+.mat-button-toggle {
+  height: 40px;
+  margin: auto;
+}
+
+.left-menu {
+  list-style-type: none;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.left-menu-item {
+  border: 1px solid black;
+  list-style-type: none;
+  margin: 5px;
+  line-height: 30px;
+}
+
+.left-menu-item a {
+  border: 1px solid red;
+  display: block;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.left-menu-item a:active {
+  background: blue;
+  border: 6px solid green;
+}
+.left-menu-item a:hover {
+  background: linear-gradient(to right, #ff512f, #f09819); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  font-size: 150%;
+}
+
+.left-menu-item a:focus {
+  background: red; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  font-size: 150%;
+}
+.routerLinkActive {
+  border: 5px solid blue;
+}
+.active a {
+  border: 5px solid red;
+}
+
+/* TS */
+import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../services/auth/auth.service';
+import {User} from '../../models/User';
+import {UserService} from '../../services/user.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MatDialog} from '@angular/material';
+
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
+})
+
+export class RouteInfo {
+  path: string;
+  title: string;
+  icon: string;
+  class: string;
+}
+export const ROUTES: RouteInfo[] = [
+  { path: 'dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
+  { path: 'user-profile', title: 'User Profile',  icon:'person', class: '' },
+  { path: 'table-list', title: 'Table List',  icon:'content_paste', class: '' },
+  { path: 'typography', title: 'Typography',  icon:'library_books', class: '' },
+  { path: 'icons', title: 'Icons',  icon:'bubble_chart', class: '' },
+  { path: 'maps', title: 'Maps',  icon:'location_on', class: '' },
+  { path: 'notifications', title: 'Notifications',  icon:'notifications', class: '' },
+  { path: 'upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
+];
+
+export class DashboardComponent implements OnInit {
+  menuItems: any[];
+  
+  ngOnInit() {
+    this.menuItems = ROUTES.filter(menuItem => menuItem);
+  }
+  currentUser: User;
+  selected = false;
+  isActive = true;
+
+  constructor(private userService: UserService,
+              public dialog: MatDialog) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.log(this.currentUser);
+  }
+  
+
+  onSelect() {
+    this.selected = true;
+    console.log(this.selected);
+  }
+
+/*  isMobileMenu() {
+    if ($(window).width() > 991) {
+      return false;
+    }
+    return true;
+  };*/
+}

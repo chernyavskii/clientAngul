@@ -1,0 +1,235 @@
+<div class="registration-component-container">
+  <mat-card-content>
+    <mat-card>
+      <mat-toolbar>
+        <h2 style="color: #FFFFFF">Регистрация</h2>
+      </mat-toolbar>
+      <mat-horizontal-stepper #stepper="matHorizontalStepper" [linear]="isLinear" style="background: #FAFAFA;">
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Личные данные</ng-template>
+            <div class="registration-main-form-content">
+              <div class="form-group4">
+                <mat-form-field class="form-field-group4">
+                  <input matInput placeholder="Логин" formControlName="username" [(ngModel)]="user.username" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group4">
+                  <input matInput placeholder="Пароль" type="password" formControlName="password"
+                         [(ngModel)]="user.password" [type]="hide ? 'password' : 'text'" required>
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                </mat-form-field>
+              </div>
+              <br>
+              <div class="action-buttons-line">
+                <mat-action-row>
+                  <button mat-button matStepperNext>Вперёд</button>
+                </mat-action-row>
+              </div>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Информация о себе</ng-template>
+            <div class="registration-main-form-content">
+              <div class="form-group2">
+                <mat-form-field class="form-field-group2">
+                  <input matInput placeholder="Имя" formControlName="firstName" [(ngModel)]="user.firstName" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group2">
+                  <input matInput placeholder="Отчество" formControlName="middleName" [(ngModel)]="user.middleName"
+                         required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group2">
+                  <input matInput placeholder="Фамилия" formControlName="lastName" [(ngModel)]="user.lastName" required>
+                </mat-form-field>
+              </div>
+              <br>
+              <div class="action-buttons-line">
+                <mat-action-row>
+                  <button mat-button matStepperPrevious>Назад</button>
+                  <button mat-button matStepperNext>Вперёд</button>
+                </mat-action-row>
+              </div>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="thirdFormGroup">
+          <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel>Другая информация</ng-template>
+            <div class="registration-main-form-content">
+              <div class="form-group3">
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="УНП" matTooltip="Учётный Номер Плательщика"
+                         [matTooltipPosition]="position" formControlName="unp" [(ngModel)]="user.unp" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="Организация" formControlName="organization"
+                         [(ngModel)]="user.organization" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="Должность" formControlName="position" [(ngModel)]="user.position"
+                         required>
+                </mat-form-field>
+
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="Адрес" formControlName="address" [(ngModel)]="user.address" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="Телефон" formControlName="phone" [(ngModel)]="user.phone" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="Банк" formControlName="bank" [(ngModel)]="user.bank" required>
+                </mat-form-field>
+
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="РС" matTooltip="Расчетный Счет" [matTooltipPosition]="position"
+                         formControlName="rs" [(ngModel)]="user.rs" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="БИК" matTooltip="Банковский Идентификационный Код"
+                         [matTooltipPosition]="position" formControlName="bik" [(ngModel)]="user.bik" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="КС" matTooltip="Корреспондентский Счет" [matTooltipPosition]="position"
+                         formControlName="ks" [(ngModel)]="user.ks" required>
+                </mat-form-field>
+              </div>
+              <br>
+              <div class="action-buttons-line">
+                <mat-action-row>
+                  <button mat-button matStepperPrevious>Назад</button>
+                  <button mat-button matStepperNext>Вперёд</button>
+                </mat-action-row>
+              </div>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step>
+          <ng-template matStepLabel>Подтверждение</ng-template>
+          <mat-accordion class="example-headers-align">
+            <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Личные данные
+                </mat-panel-title>
+                <mat-panel-description>
+                  Описание
+                  <mat-icon>account_circle</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <div class="form-group4">
+                <mat-form-field class="form-field-group4">
+                  <input matInput placeholder="Логин" type="text" [(ngModel)]="user.username" required>
+                </mat-form-field>
+
+                <mat-form-field class="form-field-group4">
+                  <input matInput placeholder="Пароль" type="password" [(ngModel)]="user.password" required>
+                </mat-form-field>
+              </div>
+              <br>
+              <div class="action-buttons-line">
+                <mat-action-row>
+
+                </mat-action-row>
+              </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Информация о себе
+                </mat-panel-title>
+                <mat-panel-description>
+                  Описание
+                  <mat-icon>map</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div class="form-group2">
+                <mat-form-field class="form-field-group2">
+                  <input matInput placeholder="Имя" type="text" [(ngModel)]="user.firstName" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group2">
+                  <input matInput placeholder="Отчество" type="text" [(ngModel)]="user.middleName" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group2">
+                  <input matInput placeholder="Фамилия" type="text" [(ngModel)]="user.lastName" required>
+                </mat-form-field>
+              </div>
+              <br>
+              <div class="action-buttons-line">
+                <mat-action-row>
+                  <button mat-button color="primary" (click)="nextStep()">Свернуть</button>
+                </mat-action-row>
+              </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Другая информация
+                </mat-panel-title>
+                <mat-panel-description>
+                  Описание
+                  <mat-icon>date_range</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div class="form-group3">
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="УНП" matTooltip="Учётный Номер Плательщика"
+                         [matTooltipPosition]="position" [(ngModel)]="user.unp" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="Организация" [(ngModel)]="user.organization" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="Должность" [(ngModel)]="user.position" required>
+                </mat-form-field>
+
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="Адрес" [(ngModel)]="user.address" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="Телефон" [(ngModel)]="user.phone" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="Банк" [(ngModel)]="user.bank" required>
+                </mat-form-field>
+
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="РС" matTooltip="Расчетный Счет" [matTooltipPosition]="position"
+                         [(ngModel)]="user.rs" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="БИК" matTooltip="Банковский Идентификационный Код"
+                         [matTooltipPosition]="position" [(ngModel)]="user.bik" required>
+                </mat-form-field>
+                <mat-form-field class="form-field-group3">
+                  <input matInput placeholder="КС" matTooltip="Корреспондентский Счет" [matTooltipPosition]="position"
+                         [(ngModel)]="user.ks" required>
+                </mat-form-field>
+              </div>
+              <br>
+              <div class="action-buttons-line">
+                <mat-action-row>
+                  <button mat-button color="primary" (click)="nextStep()">Свернуть</button>
+                </mat-action-row>
+              </div>
+            </mat-expansion-panel>
+
+          </mat-accordion>
+          <br>
+          <mat-action-row>
+            <button mat-button matStepperPrevious>Назад</button>
+            <button mat-button (click)="registration()">Зарегистрироваться</button>
+          </mat-action-row>
+
+        </mat-step>
+      </mat-horizontal-stepper>
+    </mat-card>
+  </mat-card-content>
+</div>
